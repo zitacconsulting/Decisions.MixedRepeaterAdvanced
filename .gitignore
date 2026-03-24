@@ -1,0 +1,4 @@
+bin/
+obj/
+System.ServiceModel.Primitives.dll
+System.Private.ServiceModel.dll

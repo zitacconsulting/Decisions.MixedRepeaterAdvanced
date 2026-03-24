@@ -1,0 +1,24 @@
+{
+  "Resources": {
+    "NoComponents": true,
+    "CoreServicesDlls": [
+      "./obj/Decisions.MixedRepeaterAdvanced.dll"
+    ],
+    "ReferenceDlls": [],
+    "CliDlls": "",
+    "WebPages": "",
+    "InstallScript": "",
+    "SqlScripts": "",
+    "MsSqlScript": "",
+    "CustomImages": [
+      "zitac.png"
+    ],
+    "MvcScripts": [
+      "./MvcScripts/mixed-repeater-advanced.js"
+    ],
+    "MvcStyles": []
+  },
+  "Version": "1.0.0",
+  "ImagePath": "zitac.png",
+  "Description": "Advanced Mixed Repeater is an enhanced form control for displaying and managing lists of mixed-type data items. It extends the built-in repeater with drag-and-drop reordering and cross-control item transfers."
+}
