@@ -28,7 +28,18 @@ public class MixedRepeaterAdvanced : UserControlListContainer
     public bool DragToReorder
     {
         get => _dragToReorder;
-        set { _dragToReorder = value; OnPropertyChanged(nameof(DragToReorder)); }
+        set
+        {
+            _dragToReorder = value;
+            if (!value)
+            {
+                _showDragHandle = false;
+                _triggerValueChangedOnReorder = false;
+                _allowDragOut = false;
+                AcceptDragFromIds = null;
+            }
+            OnPropertyChanged(nameof(DragToReorder));
+        }
     }
 
     private bool _showDragHandle;
