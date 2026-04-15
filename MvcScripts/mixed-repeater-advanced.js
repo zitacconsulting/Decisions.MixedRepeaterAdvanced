@@ -248,8 +248,10 @@ $DP.Control = $DP.Control || {};
                 this._paginationBar = bar;
                 this._fillPaginationBar();
 
-                // Append inside the scroll container so sticky positioning works.
-                const container = this.$control[0] || this._getListEl()?.parentNode;
+                // Append inside the scroll container (.dp-user-defined-control-list) so
+                // sticky positioning works. this.$control[0] is the outer section which is
+                // full-size — appending there puts the bar outside the scroll area.
+                const container = this.getControl()[0] || this.$control[0];
                 if (container) container.appendChild(bar);
             }
 

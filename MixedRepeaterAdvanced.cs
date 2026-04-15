@@ -540,7 +540,20 @@ public class MixedRepeaterAdvanced : UserControlListContainer, IDataProducer, IS
                     : basePairs;
             }
 
-            // Paging path
+            // Paging: if no force-refresh is pending (e.g. an AFF doing a light
+            // in-place data update), delegate to the base so the JS control can
+            // use its incremental update path instead of a full re-render.
+            // Off-page items sent by the base will be silently skipped by the JS
+            // (it matches by child ID against the currently rendered page).
+            if (!base.ForceRefresh)
+            {
+                var basePairs = base.ClientData;
+                return AllowSelection
+                    ? basePairs.Append(selIdPair).Append(selIdsPair).ToArray()
+                    : basePairs;
+            }
+
+            // Full re-render path (GoToPage or structural change) — send current page slice.
             var all = Children.ToArray();
             var totalPages = all.Length > 0
                 ? (int)Math.Ceiling((double)all.Length / PageSize)
