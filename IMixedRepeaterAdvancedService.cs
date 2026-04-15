@@ -11,4 +11,12 @@ public interface IMixedRepeaterAdvancedService : IAuthenticatedService
     [OperationContract]
     bool MoveChild(AbstractUserContext userContext, string formSessionInfoId,
         string sourceControlId, string targetControlId, string childId, int insertAtIndex);
+
+    [OperationContract]
+    bool MoveChildren(AbstractUserContext userContext, string formSessionInfoId,
+        string sourceControlId, string targetControlId, string[] childIds, int insertAtIndex);
+
+    [OperationContract]
+    MraPageResult GoToPage(AbstractUserContext userContext,
+        string formSessionInfoId, string controlId, int pageIndex);
 }
